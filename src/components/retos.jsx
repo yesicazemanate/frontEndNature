@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import {
   Button,
   Dialog,
@@ -7,8 +7,9 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
 import axios from "axios";
- 
+import { MyContext } from '../context'
 export function Retos() {
+  const {idUser, setIdUser}=useContext(MyContext)
   const [open, setOpen] = React.useState(false);
   const [data, setData]= useState()
   const datas = async()=>{
@@ -18,25 +19,40 @@ export function Retos() {
     }catch(error){
         console.log(error)
     }
-}
-  const handleOpen = () => {
-datas()
-    setOpen(!open);
   }
 
+  
+  const handle =async()=>{
+      try{
+        const response =await axios.post('http://localhost:3000/tree/',{
+          points:data.points,
+          idUsuario:idUser,
+          status:'semilla'
+      })
+  console.log(response);
+      }catch(error){
+        console.log(error);
+      }
 
-
-
+  }
+  const handleSubmit = () => {
+handle()
+    setOpen(!open);
+  }
+  const handleOpen2 = () => {
+    datas()
+        setOpen(!open);
+      }
 
 
   return (
     <>
-      <Button onClick={handleOpen} variant="gradient">
+      <Button onClick={handleOpen2} variant="gradient">
     Generar Reto
       </Button>{
 data&&(
     <>
-    <Dialog open={open} handler={handleOpen}>
+    <Dialog open={open} handler={handleOpen2}>
         <DialogHeader>Reto Generado</DialogHeader>
          <DialogBody>
             Descripción: 
@@ -54,19 +70,22 @@ data&&(
           <Button
             variant="text"
             color="red"
-            onClick={handleOpen}
+            onClick={handleOpen2}
             className="mr-1"
           >
             <span >Cancel</span>
           </Button>
-          <Button variant="gradient" color="green" onClick={handleOpen}>
-            <span>Confirm</span>
+          <form onSubmit={handleSubmit}>
+          <Button variant="gradient" color="green"  type="submit">
+            <span >Hecho</span>
           </Button>
+          </form>
         </DialogFooter>
       </Dialog>
     </>
 )
       }
+    
       
 
       

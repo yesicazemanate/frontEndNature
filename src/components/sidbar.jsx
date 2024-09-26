@@ -24,24 +24,14 @@ navigate('/verhuella')
         </Typography>
       </div>
       <List>
-        <ListItem>
-        Home
-        </ListItem>
+     
         <ListItem onClick={handleCalculadora}>
        Calculadora
         </ListItem>
-        <ListItem>
-         Rankings
-        </ListItem>
+     
         <ListItem onClick={handleRetos}>
    Retos
         </ListItem>
-        <ListItem>
-   Crear Retos
-        </ListItem>
-        <ListItem>
-      Invitación
-       </ListItem>
         <ListItem>
           Log Out
         </ListItem>
