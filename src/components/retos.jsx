@@ -14,7 +14,7 @@ export function Retos() {
   const [data, setData]= useState()
   const datas = async()=>{
     try{
-        const response = await axios.get('http://localhost:3000/challenge/')
+        const response = await axios.get('https://backendnature-2.onrender.com/challenge/')
        setData(response.data)
     }catch(error){
         console.log(error)
@@ -24,7 +24,7 @@ export function Retos() {
   
   const handle =async()=>{
       try{
-        const response =await axios.post('http://localhost:3000/tree/',{
+        const response =await axios.post('https://backendnature-2.onrender.com/tree/',{
           points:data.points,
           idUsuario:idUser,
           status:'semilla'

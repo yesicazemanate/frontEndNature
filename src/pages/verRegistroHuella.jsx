@@ -16,7 +16,7 @@ export const VerRegistroHuella = () => {
    useEffect(()=>{
       if(token){
          const data=async()=>{
-            const response = await axios.post('http://localhost:3000/user/decode',{},{
+            const response = await axios.post('https://backendnature-2.onrender.com/user/decode',{},{
                headers: {
                   'Authorization': `Bearer ${token}`
                 }

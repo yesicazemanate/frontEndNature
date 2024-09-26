@@ -16,7 +16,7 @@ export const FormRegister = () => {
   const [password, setPassword]=useState()
   const handleSubmit=async()=>{
     try{
-      const response= await axios.post('http://localhost:3000/user/register',{name,lastname,email,password})
+      const response= await axios.post('https://backendnature-2.onrender.com/user/register',{name,lastname,email,password})
       console.log(response);
     }catch(error){
       console.log(error);

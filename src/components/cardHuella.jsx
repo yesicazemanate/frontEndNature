@@ -17,7 +17,7 @@ console.log(idUser)
 
       const getHuella =async()=>{
         try{
-           const response = await axios.get(`http://localhost:3000/footprint/obtenerhuella/${idUser}`)
+           const response = await axios.get(`https://backendnature-2.onrender.com/${idUser}`)
            setData(response.data)
            console.log(response.data);
         }catch(error){

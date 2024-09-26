@@ -46,7 +46,7 @@ const handleSubmit=async(e)=>{
   e.preventDefault(e)
   console.log(datavs);
   try{
-    const response= await axios.post('http://localhost:3000/footprint/calcular',{datavs})
+    const response= await axios.post('https://backendnature-2.onrender.com/footprint/calcular',{datavs})
     console.log(response);
   }catch(error){
     console.log(error);

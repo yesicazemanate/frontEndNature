@@ -12,7 +12,7 @@ export const FormLogin = () => {
    const [error, setError]= useState()
    const handleSubmit=async()=>{
       try{
-        const response= await axios.post('http://localhost:3000/user/login',{email,password})
+        const response= await axios.post('https://backendnature-2.onrender.com/user/login',{email,password})
         console.log(response);
         if (response.data && response.data.token) {
           Cookies.set('token', response.data.token, { expires: 7 });

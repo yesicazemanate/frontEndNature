@@ -16,7 +16,7 @@ export const CardReto = () => {
    const [sumaPuntaje, setSumaPuntaje]= useState()
   useEffect(()=>{
 const datos=async()=>{
-const response= await axios.get('http://localhost:3000/tree/')
+const response= await axios.get('https://backendnature-2.onrender.com/tree/')
 
 let sumaTotal = 0;
 
